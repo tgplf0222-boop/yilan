@@ -7,38 +7,49 @@
 
 <style>
 :root{
-    --blue:#1E88E5;
-    --green:#43A047;
-    --text:#2F3E4E;
-    --muted:#6B7280;
-    --bg:#f4f8fc;
-    --card:#ffffff;
-    --border:#e4ebf2;
-    --shadow:0 12px 30px rgba(15,23,42,.08);
+    --sky:#2f7fb8;
+    --sea:#2f8f7f;
+    --orange:#f29a2e;
+    --text:#334155;
+    --muted:#64748b;
+    --bg:#f7f1e8;
+    --card:#fffdfa;
+    --border:#e8dcc9;
+    --shadow:0 10px 24px rgba(30,41,59,.08);
 }
 
 *{box-sizing:border-box;}
 
 body{
     font-family:"Microsoft JhengHei",sans-serif;
-    background:linear-gradient(180deg,#f7fbff 0%,var(--bg) 100%);
+    background:linear-gradient(180deg,#fffdf8 0%,var(--bg) 100%);
     margin:0;
     color:var(--text);
-    line-height:1.6;
+    line-height:1.7;
 }
 
 header{
-    background:linear-gradient(135deg,#0F6FCF,#2F9E44);
+    background:linear-gradient(135deg,#226f9a 0%,#3f8f7c 100%);
     color:white;
     text-align:center;
-    padding:48px 24px 36px;
-    box-shadow:inset 0 -1px 0 rgba(255,255,255,.2);
+    padding:50px 24px 42px;
+    position:relative;
+    overflow:hidden;
+}
+
+header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top right, rgba(255,255,255,.18), transparent 35%);
+    pointer-events:none;
 }
 
 header h1{
     margin:0;
-    font-size:clamp(28px,4vw,40px);
+    font-size:clamp(30px,4vw,42px);
     letter-spacing:.04em;
+    position:relative;
 }
 
 header h2{
@@ -47,13 +58,14 @@ header h2{
     opacity:.96;
     max-width:640px;
     font-size:clamp(16px,2.2vw,20px);
+    position:relative;
 }
 
 .container{
-    width:min(92%,1040px);
-    margin:32px auto 48px;
+    width:min(92%,1080px);
+    margin:28px auto 48px;
     display:grid;
-    gap:24px;
+    gap:20px;
 }
 
 .trip-summary{
@@ -63,8 +75,9 @@ header h2{
 }
 
 .summary-card{
-    background:var(--card);
+    background:linear-gradient(135deg,#fffaf3 0%,#ffffff 100%);
     border:1px solid var(--border);
+    border-left:4px solid var(--orange);
     border-radius:16px;
     padding:16px 18px;
     box-shadow:var(--shadow);
@@ -82,6 +95,30 @@ header h2{
     color:var(--text);
 }
 
+.guide-intro{
+    background:linear-gradient(135deg,#fffaf1 0%,#ffffff 100%);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px 20px;
+    box-shadow:var(--shadow);
+}
+
+.guide-intro p{
+    margin:6px 0 12px;
+    color:var(--muted);
+}
+
+.guide-tags{display:flex;flex-wrap:wrap;gap:8px;}
+
+.guide-tags span{
+    padding:6px 10px;
+    border-radius:999px;
+    background:#f8efe0;
+    color:#8a5a13;
+    font-size:13px;
+    font-weight:600;
+}
+
 .day{
     background:var(--card);
     border:1px solid var(--border);
@@ -97,7 +134,7 @@ header h2{
     position:absolute;
     inset:0 0 auto 0;
     height:5px;
-    background:linear-gradient(90deg,var(--blue),var(--green));
+    background:linear-gradient(90deg,var(--sky),var(--sea));
 }
 
 .day-header{
@@ -105,14 +142,14 @@ header h2{
     justify-content:space-between;
     align-items:center;
     gap:10px;
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .day h2{
-    color:var(--blue);
+    color:var(--sky);
     margin:0;
     padding-left:12px;
-    border-left:5px solid var(--blue);
+    border-left:5px solid var(--sky);
     font-size:22px;
     display:flex;
     align-items:center;
@@ -120,7 +157,7 @@ header h2{
 }
 
 .day-badge{
-    background:linear-gradient(135deg,var(--blue),var(--green));
+    background:linear-gradient(135deg,var(--sky),var(--sea));
     color:white;
     padding:6px 12px;
     border-radius:999px;
@@ -131,66 +168,37 @@ header h2{
 .section{
     margin-top:16px;
     padding:16px 18px;
-    background:#f8fbff;
+    background:#fffdf7;
     border:1px solid var(--border);
     border-radius:14px;
 }
 
 .section h3{
-    color:var(--green);
+    color:var(--sea);
     margin:0 0 10px;
     font-size:18px;
 }
 
-ul{
-    line-height:1.8;
-    padding-left:20px;
-    margin:0;
-}
+ul{line-height:1.8;padding-left:20px;margin:0;}
+ul ul{margin-top:8px;padding-left:18px;}
+li{margin:6px 0;}
 
-ul ul{
-    margin-top:8px;
-    padding-left:18px;
-}
-
-li{
-    margin:6px 0;
-}
-
-a{
-    color:#1565C0;
-    text-decoration:none;
-    transition:color .2s ease;
-    display:inline-block;
-}
-
-a:hover{
-    color:#0D47A1;
-    text-decoration:underline;
-}
+a{color:#1769aa;text-decoration:none;transition:color .2s ease;display:inline-block;}
+a:hover{color:#12548a;text-decoration:underline;}
 
 .timeline{
-    background:linear-gradient(135deg,#ecf7ff 0%,#eef9ef 100%);
+    background:linear-gradient(135deg,#eef7fb 0%,#f5fcf7 100%);
     padding:16px 18px;
     border-radius:14px;
-    border:1px solid #dbe9f5;
+    border:1px solid #d8e7dc;
     margin-bottom:16px;
     font-weight:600;
     color:#35506b;
 }
 
-.timeline b{
-    color:var(--blue);
-    display:inline-block;
-    margin-bottom:6px;
-}
+.timeline b{color:var(--sky);display:inline-block;margin-bottom:6px;}
 
-footer{
-    text-align:center;
-    padding:30px 20px 40px;
-    color:#678;
-    font-size:15px;
-}
+footer{text-align:center;padding:30px 20px 40px;color:#7a8a99;font-size:15px;}
 
 @media (max-width:640px){
     header{padding:36px 18px 28px;}
@@ -225,6 +233,17 @@ footer{
   <div class="summary-card">
     <span>主題</span>
     <strong>海景 · 美食 · 植物園</strong>
+  </div>
+</div>
+
+<div class="guide-intro">
+  <strong>旅行攻略重點</strong>
+  <p>以慢遊、在地美食與自然景點為主，適合安排輕鬆的三日行程。</p>
+  <div class="guide-tags">
+    <span>交通</span>
+    <span>住宿</span>
+    <span>美食</span>
+    <span>景點</span>
   </div>
 </div>
 
