@@ -56,6 +56,32 @@ header h2{
     gap:24px;
 }
 
+.trip-summary{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+}
+
+.summary-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:16px 18px;
+    box-shadow:var(--shadow);
+}
+
+.summary-card span{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px;
+}
+
+.summary-card strong{
+    font-size:16px;
+    color:var(--text);
+}
+
 .day{
     background:var(--card);
     border:1px solid var(--border);
@@ -74,15 +100,32 @@ header h2{
     background:linear-gradient(90deg,var(--blue),var(--green));
 }
 
+.day-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
 .day h2{
     color:var(--blue);
-    margin:0 0 12px;
+    margin:0;
     padding-left:12px;
     border-left:5px solid var(--blue);
     font-size:22px;
     display:flex;
     align-items:center;
     gap:8px;
+}
+
+.day-badge{
+    background:linear-gradient(135deg,var(--blue),var(--green));
+    color:white;
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:13px;
+    white-space:nowrap;
 }
 
 .section{
@@ -152,7 +195,9 @@ footer{
 @media (max-width:640px){
     header{padding:36px 18px 28px;}
     .container{width:96%; margin:20px auto 32px; gap:16px;}
+    .trip-summary{grid-template-columns:1fr;}
     .day{padding:20px 16px 22px; border-radius:16px;}
+    .day-header{flex-direction:column; align-items:flex-start;}
     .section{padding:14px 14px;}
 }
 </style>
@@ -168,9 +213,27 @@ footer{
 
 <div class="container">
 
+<div class="trip-summary">
+  <div class="summary-card">
+    <span>日期</span>
+    <strong>2026/09/11 - 09/13</strong>
+  </div>
+  <div class="summary-card">
+    <span>天數</span>
+    <strong>3日2夜</strong>
+  </div>
+  <div class="summary-card">
+    <span>主題</span>
+    <strong>海景 · 美食 · 植物園</strong>
+  </div>
+</div>
+
 <div class="day">
 
+<div class="day-header">
 <h2>📅 Day 1｜9/11（五）</h2>
+<span class="day-badge">第一天</span>
+</div>
 
 <div class="timeline">
 <b>行程</b><br>
@@ -205,7 +268,10 @@ Hotel Lounge 朗居文旅
 
 <div class="day">
 
+<div class="day-header">
 <h2>📅 Day 2｜9/12（六）</h2>
+<span class="day-badge">第二天</span>
+</div>
 
 <div class="timeline">
 <b>行程</b><br>
@@ -311,7 +377,10 @@ Hotel Lounge 朗居文旅
 
 <div class="day">
 
+<div class="day-header">
 <h2>📅 Day 3｜9/13（日）</h2>
+<span class="day-badge">第三天</span>
+</div>
 
 <div class="timeline">
 <b>行程</b><br>
